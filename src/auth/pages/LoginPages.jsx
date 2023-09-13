@@ -1,10 +1,13 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { AuthContext } from '../context/AuthContext';
 
 export const LoginPages = () => {
   const navigate = useNavigate();
+  const { login } = useContext(AuthContext);
   const onLogin = () => {
-    navigate('/marvel')
+    login('John Doe')
+    navigate('/marvel');
   };
   return (
     <div className="container mt-5">
@@ -14,5 +17,5 @@ export const LoginPages = () => {
         Login
       </button>
     </div>
-  )
-}
+  );
+};
